@@ -1,0 +1,62 @@
+.content_header {
+  border-bottom: 1px solid #E6E6E6;
+}
+
+ .feed_form {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.thumbnail > img {
+  margin: 0px;
+  display: inline;
+}
+
+.feed_content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.feed_sub {
+  border-top: 1px solid #E6E6E6;
+  padding-top: 8px;
+  padding-bottom: 4px;
+}
+
+.feed_form div.form-group {
+  margin-bottom: 0px;
+}
+
+.navbar-default .navbar-nav > .active > a {
+   background: #E4E6EB;
+}
+
+.nav-pills > li.active > a {
+  background: #FFFFFF;
+  color: #4C4C4C;
+}
+
+.nav-pills > li > a {
+  color: #4C4C4C;
+}
+
+.comment_count, .like_count {
+  color: #4C4C4C;
+}
+
+.comment_content {
+  margin-top: 10px;
+  margin-right: 6px;
+  margin-left: 6px;
+  border-top: 1px solid #E6E6E6;
+  padding-top: 4px;
+}
+
+.comment_content span.comment {
+  font-size: 18px;
+}
+
+
+
+

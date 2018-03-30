@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ホソミチチャット</title>
+</head>
+<body>
+  <input type="text" id="msg_input" style="width:200px;" />
+  <button onclick="publishMessage();">語る</button>
+  <div id="msg"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+    var socket = io.connect('http://192.168.33.10:8080');
+    console.log('1');
+
+    socket.on("connect", function() {
+        console.log('2');
+
+        // 2. チャット開始をnode.jsサーバへ通知
+        socket.emit("onServerRecvStart", 1);
+
+        // 4. node.jsからtokenがかえってきたらwebサーバへ送信して共有します
+        socket.on("onClientRecvToken", function(_token) {
+            console.log('4');
+            console.log('Recv token:'+_token);
+        });
+    });
+  </script>
+</body>
+</html>
