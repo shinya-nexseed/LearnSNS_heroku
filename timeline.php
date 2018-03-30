@@ -118,7 +118,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <?php echo cl_image_tag($login_user['img_name'], array("width"=>18, "crop"=>"scale", "className"=>"img-circle")); ?>
+              <?php echo cl_image_tag($login_user['img_name'], array("width"=>18, "crop"=>"scale", "class"=>"img-circle")); ?>
               <?php echo $login_user['name']; ?> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
