@@ -1,6 +1,13 @@
 <?php
     session_start();
+    require '../vendor/autoload.php';
     require('../dbconnect.php');
+
+    \Cloudinary::config(array(
+        "cloud_name" => "hunhoq3jj",
+        "api_key" => "247935968749128",
+        "api_secret" => "NYyNJOdqTCbwr3Qdi9LdIzviaBc"
+    ));
 
     if (!isset($_SESSION['m_register'])) {
         header('Location: signup.php');
@@ -39,7 +46,8 @@
         <h2 class="text-center content_header">アカウント情報確認</h2>
         <div class="row">
           <div class="col-xs-4">
-            <img src="../user_profile_img/<?php echo htmlspecialchars($img_name); ?>" class="img-responsive img-thumbnail">
+            <?php echo cl_image_tag($img_name, array("className"=>"img-responsive img-thumbnail")); ?>
+            <!-- <img src="../user_profile_img/" class="img-responsive img-thumbnail"> -->
           </div>
           <div class="col-xs-8">
             <div>

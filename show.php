@@ -1,8 +1,15 @@
 <?php
     session_start();
+    require 'vendor/autoload.php';
     require('dbconnect.php');
     require('signin_check.php');
     require('functions.php');
+
+    \Cloudinary::config(array(
+        "cloud_name" => "hunhoq3jj",
+        "api_key" => "247935968749128",
+        "api_secret" => "NYyNJOdqTCbwr3Qdi9LdIzviaBc"
+    ));
 
     if (!isset($_REQUEST['id'])) {
         header('Location: timeline.php');
@@ -124,7 +131,10 @@
           </form>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="user_profile_img/<?php echo $login_user['img_name']; ?>" width="18" class="img-circle"><?php echo $login_user['name']; ?> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <?php echo cl_image_tag($login_user['img_name'], array("width"=>18, "crop"=>"scale", "className"=>"img-circle")); ?>
+              <?php echo $login_user['name']; ?> <span class="caret"></span>
+            </a>
             <ul class="dropdown-menu">
               <li><a href="#">マイページ</a></li>
               <li><a href="#">サインアウト</a></li>
@@ -147,7 +157,7 @@
           <div class="thumbnail">
             <div class="row">
               <div class="col-xs-1">
-                <img src="user_profile_img/<?php echo $feed['img_name']; ?>" width="40">
+                <?php echo cl_image_tag($feed['img_name'], array("width"=>40, "crop"=>"scale")); ?>
               </div>
               <div class="col-xs-11">
                 <?php echo $feed['name']; ?><br>
@@ -195,7 +205,7 @@
                 <?php foreach($comments as $comment) { ?>
                   <div class="row comment_content">
                     <div class="col-xs-1">
-                      <img src="user_profile_img/<?php echo $comment['img_name']; ?>" width="40">
+                      <?php echo cl_image_tag($comment['img_name'], array("width"=>40, "crop"=>"scale")); ?>
                     </div>
                     <div class="col-xs-11">
                       <?php echo $comment['name']; ?><br>

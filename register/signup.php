@@ -1,6 +1,13 @@
 <?php
     session_start();
+    require '../vendor/autoload.php';
     require('../dbconnect.php');
+
+    \Cloudinary::config(array(
+        "cloud_name" => "hunhoq3jj",
+        "api_key" => "247935968749128",
+        "api_secret" => "NYyNJOdqTCbwr3Qdi9LdIzviaBc"
+    ));
 
     if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite') {
         $_POST['input_name'] = $_SESSION['m_register']['name'];
@@ -73,7 +80,14 @@
             $date_str = date('YmdHis');
             $submit_file_name = $date_str . $file_name;
 
+            // Cloudinary用
+            $tmp_arr = explode('.', $submit_file_name);
+            $cloudinary_file_name = $tmp_arr[0];
+            echo $cloudinary_file_name;
+
             move_uploaded_file($_FILES['input_img_name']['tmp_name'], '../user_profile_img/' . $submit_file_name);
+
+            $ret = \Cloudinary\Uploader::upload('../user_profile_img/' . $submit_file_name,array("public_id" => $cloudinary_file_name));
 
             // $_SESSION['m_register'] = $_POST;
             $_SESSION['m_register']['name'] = $_POST['input_name'];
