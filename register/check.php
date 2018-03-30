@@ -46,7 +46,7 @@
         <h2 class="text-center content_header">アカウント情報確認</h2>
         <div class="row">
           <div class="col-xs-4">
-            <?php echo cl_image_tag($img_name, array("className"=>"img-responsive img-thumbnail")); ?>
+            <?php echo cl_image_tag($img_name, array("class"=>"img-responsive img-thumbnail")); ?>
             <!-- <img src="../user_profile_img/" class="img-responsive img-thumbnail"> -->
           </div>
           <div class="col-xs-8">
